@@ -22,6 +22,7 @@ public class Wordle {
                 if (word.isEmpty()) continue;
                 words.add(word);
             }
+            sr.close();
         }catch (Exception e){
             e.getMessage();
         }
