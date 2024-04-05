@@ -104,6 +104,7 @@ public class MainMenu {
       public void actionPerformed(ActionEvent e) {
         panel.setVisible(false);
         SpellingBeeGUI.gameCallSpellingBee();
+        frame.dispose();
       }
     });
   }
