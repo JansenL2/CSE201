@@ -18,6 +18,8 @@ public class WordleGUI {
     
     public static void main(String[] args) {
 
+        String answer = Wordle.generateWord();
+        System.out.print(answer);
         
         boolean gameOver = false;
         
@@ -86,8 +88,13 @@ public class WordleGUI {
                     currentLetter = 0;
                     currentWord++;
                     System.out.println(word);
-                    word = "";
+                    
 
+                    
+                    
+                    System.out.println(Wordle.isWin(Wordle.checkWord(answer, word)));
+                    
+                    word = "";
                 }
             }
 
