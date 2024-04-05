@@ -1,7 +1,10 @@
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
@@ -54,6 +57,12 @@ public class WordleGUI {
         }
         
         panel.add(wordleHeader);
+        
+        JButton backButton = new JButton();
+        backButton.setText("Main Menu");
+
+        backButton.setBounds(375, 300, 100, 50);
+        panel.add(backButton);
 
         panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -61,6 +70,22 @@ public class WordleGUI {
         frame.add(panel);
         frame.setSize(500, 400);
         panel.setBackground(new Color(255, 100, 255, 100));
+        
+        
+        backButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+              frame.setVisible(false);
+
+              try {
+                MainMenu.mainCall();
+              } catch (IOException e1) {
+                // TODO Auto-generated catch block
+                e1.printStackTrace();
+              }
+
+              ;
+            }
+          });
 
         frame.setVisible(true);
         
