@@ -104,6 +104,14 @@ public class MainMenu {
       public void actionPerformed(ActionEvent e) {
         panel.setVisible(false);
         SpellingBeeGUI.gameCallSpellingBee();
+        frame.dispose();
+      }
+    });
+    button3.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent e) {
+        panel.setVisible(false);
+        StartGame.sodokuStart();
+        frame.dispose();
       }
     });
   }
