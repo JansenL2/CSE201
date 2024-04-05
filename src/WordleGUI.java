@@ -78,7 +78,7 @@ public class WordleGUI {
                     }
                 }
                 else if (currentLetter != 5) {
-                    grid.get(currentLetter + (currentWord * 5)).setText(String.valueOf(e.getKeyChar()));
+                    grid.get(currentLetter + (currentWord * 5)).setText((String.valueOf(e.getKeyChar())).toUpperCase());
                     word = word + String.valueOf(e.getKeyChar());
                     currentLetter++;
                 }
