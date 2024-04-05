@@ -1,10 +1,12 @@
 import java.io.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Random;
 import java.util.Scanner;
 
 public class Wordle {
     static ArrayList<String> words = wordsList();
+    private static HashSet<String> wordsHash = new HashSet<>(words);
 
     // Randomly select a word from the words list and return.
     public static String generateWord(){
@@ -54,6 +56,10 @@ public class Wordle {
             if (c == letters[i]) return true;
         }
         return false;
+    }
+    
+    public static boolean checkEnterWord(String word){
+        return wordsHash.contains(word);
     }
 
     // This method is used to read a list of words from a text file and return it.
