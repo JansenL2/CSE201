@@ -19,6 +19,12 @@ import javax.swing.WindowConstants;
 public class MainMenu {
   public static void main(String[] args) throws IOException {
 
+    mainCall();
+
+  }
+
+  public static void mainCall() throws IOException {
+
     File streakFile = new File("dateCheck.txt");
     Scanner myReader = new Scanner(streakFile);
     String prevDate = myReader.nextLine();
@@ -90,15 +96,16 @@ public class MainMenu {
     button1.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
         frame.dispose();
+        System.exit(0);
       }
     });
 
     button2.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
         panel.setVisible(false);
+        SpellingBeeGUI.gameCallSpellingBee();
       }
     });
-
   }
 
 }

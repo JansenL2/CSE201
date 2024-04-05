@@ -1,6 +1,9 @@
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -10,7 +13,8 @@ import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 
 public class SpellingBeeGUI {
-  public static void main(String[] args) {
+
+  public static void gameCallSpellingBee() {
 
     int numWords = 0;
     String word = "";
@@ -46,6 +50,11 @@ public class SpellingBeeGUI {
     button5.setText("E");
     button5.setBounds(10 + 5 + 50 * (4), BUTTONHEIGHT + TOPPADDING, 50, 50);
 
+    JButton backButton = new JButton();
+    backButton.setText("Main Menu");
+
+    backButton.setBounds(400, 300 - 75, 100, 50);
+
     panel.setLayout(null);
 
     panel.add(correctWordsLabel);
@@ -54,6 +63,7 @@ public class SpellingBeeGUI {
     panel.add(button3);
     panel.add(button4);
     panel.add(button5);
+    panel.add(backButton);
 
     panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
     frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -64,5 +74,21 @@ public class SpellingBeeGUI {
 
     frame.setVisible(true);
 
+    backButton.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent e) {
+        frame.setVisible(false);
+
+        try {
+          MainMenu.mainCall();
+        } catch (IOException e1) {
+          // TODO Auto-generated catch block
+          e1.printStackTrace();
+        }
+
+        ;
+      }
+    });
+
   }
+
 }
