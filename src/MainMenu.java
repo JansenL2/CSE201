@@ -107,6 +107,13 @@ public class MainMenu {
         frame.dispose();
       }
     });
+    button3.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent e) {
+        panel.setVisible(false);
+        StartGame.sodokuStart();
+        frame.dispose();
+      }
+    });
   }
 
 }
