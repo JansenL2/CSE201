@@ -17,6 +17,8 @@ import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 
 public class MainMenu {
+  static int dailyStreak;
+
   public static void main(String[] args) throws IOException {
 
     mainCall();
@@ -28,7 +30,7 @@ public class MainMenu {
     File streakFile = new File("dateCheck.txt");
     Scanner myReader = new Scanner(streakFile);
     String prevDate = myReader.nextLine();
-    int dailyStreak = myReader.nextInt();
+    dailyStreak = myReader.nextInt();
     myReader.close();
 
     FileWriter fileWriter = new FileWriter("dateCheck.txt");
@@ -73,6 +75,10 @@ public class MainMenu {
     button4.setText("Wordle");
     button4.setBounds(10 + 5 + 100 * (3), BUTTONHEIGHT + TOPPADDING, 100, 50);
 
+    JButton clearStreakButton = new JButton();
+    clearStreakButton.setText("Reset Streak");
+    clearStreakButton.setBounds(400, 225, 100, 50);
+
     panel.setLayout(null);
 
     panel.add(streakLabel);
@@ -81,6 +87,7 @@ public class MainMenu {
     panel.add(button2);
     panel.add(button3);
     panel.add(button4);
+    panel.add(clearStreakButton);
 
     panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
     frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -114,13 +121,35 @@ public class MainMenu {
         frame.dispose();
       }
     });
+
     button4.addActionListener(new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
-            panel.setVisible(false);
-            WordleGUI.gameCallWordle();
-            frame.dispose();
+      public void actionPerformed(ActionEvent e) {
+        panel.setVisible(false);
+        WordleGUI.gameCallWordle();
+        frame.dispose();
+      }
+    });
+    clearStreakButton.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent e) {
+        dailyStreak = 0;
+        streakLabel.setText("Streak: " + dailyStreak);
+
+        FileWriter fileWriter = null;
+        try {
+          fileWriter = new FileWriter("dateCheck.txt");
+        } catch (IOException e1) {
+          // TODO Auto-generated catch block
+          e1.printStackTrace();
         }
-      });
+        PrintWriter printWriter = new PrintWriter(fileWriter);
+
+        printWriter.println(java.time.LocalDate.now());
+        printWriter.println(dailyStreak);
+
+        printWriter.close();
+
+      }
+    });
   }
 
 }
