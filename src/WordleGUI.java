@@ -22,6 +22,11 @@ public class WordleGUI {
     
     public static void gameCallWordle() {
 
+        currentLetter = 0;
+        currentWord = 0;
+        word = "";
+        gameOver = false;
+        
         String answer = Wordle.generateWord();
         System.out.print(answer);
         
@@ -52,6 +57,7 @@ public class WordleGUI {
             button.setPreferredSize(new Dimension(100, 100));
             button.setText("");
             button.setBounds(100 + 5 + 50 * (colCount), BUTTONHEIGHT * rowCount * 2 - 20 + TOPPADDING, 50, 50);
+            button.setBackground(Color.WHITE);;
             grid.add(button);
             panel.add(button);
         }
@@ -70,6 +76,7 @@ public class WordleGUI {
         frame.add(panel);
         frame.setSize(500, 400);
         panel.setBackground(new Color(255, 100, 255, 100));
+        grid.get(currentLetter + (currentWord * 5)).setBackground(Color.LIGHT_GRAY);
         
         
         backButton.addActionListener(new ActionListener() {
@@ -99,6 +106,7 @@ public class WordleGUI {
                 
                 if (!gameOver) {
                     if (e.getKeyCode() == KeyEvent.VK_BACK_SPACE) {
+                        grid.get(currentLetter + (currentWord * 5)).setBackground(Color.WHITE);
                         if (currentLetter > 0) {
                             grid.get(currentLetter + (currentWord * 5) - 1).setText("");
                             word = word.substring(0, word.length() - 1);
@@ -106,42 +114,58 @@ public class WordleGUI {
                         }
                     }
                     else if (currentLetter != 5) {
-                        grid.get(currentLetter + (currentWord * 5)).setText((String.valueOf(e.getKeyChar())).toUpperCase());
-                        word = word + String.valueOf(e.getKeyChar());
-                        currentLetter++;
+                        if (Character.isLetter(e.getKeyChar())) {
+                            grid.get(currentLetter + (currentWord * 5)).setBackground(Color.WHITE);
+                            grid.get(currentLetter + (currentWord * 5)).setText((String.valueOf(e.getKeyChar())).toUpperCase());
+                            word = word + String.valueOf(e.getKeyChar());
+                            currentLetter++;
+                        }
                     }
                     else if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                        grid.get(currentLetter + (currentWord * 5)).setBackground(Color.WHITE);
                         currentLetter = 0;
                                   
-                       
-                        int[] results = Wordle.checkWord(answer, word);
-                        int result;
-                        for (int i = 0; i < results.length; i++) {
-                            result = results[i];
-                            
-                            switch (result) {
-                                case 0:
-                                    grid.get(i + (currentWord * 5)).setBackground(Color.GREEN);
-                                    break;
-                                case 1:
-                                    grid.get(i + (currentWord * 5)).setBackground(Color.YELLOW);
-                                    break;
-                                case 2: 
-                                    break;
-                                default:
-                                    break;
+                        if (Wordle.checkEnterWord(word)) {
+                            int[] results = Wordle.checkWord(answer, word);
+                            int result;
+                            for (int i = 0; i < results.length; i++) {
+                                result = results[i];
+                                
+                                switch (result) {
+                                    case 0:
+                                        grid.get(i + (currentWord * 5)).setBackground(Color.GREEN);
+                                        break;
+                                    case 1:
+                                        grid.get(i + (currentWord * 5)).setBackground(Color.YELLOW);
+                                        break;
+                                    case 2: 
+                                        break;
+                                    default:
+                                        break;
+                                }
                             }
+                            
+                            if (Wordle.isWin(Wordle.checkWord(answer, word))) {
+                                gameOver = true;
+                            }
+                            
+                            currentWord++;  
+                        } else {
+                            currentWord++;
+                            grid.get(currentLetter-- + (currentWord * 5) - 1).setText("");
+                            grid.get(currentLetter-- + (currentWord * 5) - 1).setText("");
+                            grid.get(currentLetter-- + (currentWord * 5) - 1).setText("");
+                            grid.get(currentLetter-- + (currentWord * 5) - 1).setText("");
+                            grid.get(currentLetter-- + (currentWord * 5) - 1).setText("");
                         }
                         
-                        if (Wordle.isWin(Wordle.checkWord(answer, word))) {
-                            gameOver = true;
-                        }
-                        
-                        currentWord++; 
                         word = "";
                     }
                 }
                 
+                if (currentLetter != 5 && currentWord != 6 && !gameOver) {
+                    grid.get(currentLetter + (currentWord * 5)).setBackground(Color.LIGHT_GRAY);
+                }
             }
 
             @Override
