@@ -110,7 +110,7 @@ public class MainMenu {
 
     frame.add(panel);
 
-    panel.setBackground(new Color(255, 100, 255, 100));
+    panel.setBackground(new Color(255, 209, 220));
 
     frame.setVisible(true);
 
@@ -169,19 +169,19 @@ public class MainMenu {
 
     pinkBackgroundButton.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
-        panel.setBackground(new Color(255, 100, 255, 100));
+        panel.setBackground(new Color(255, 209, 220));
 
       }
     });
     greenBackgroundButton.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
-        panel.setBackground(new Color(100, 255, 100, 100));
+        panel.setBackground(new Color(193, 225, 193));
 
       }
     });
     blueBackgroundButton.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
-        panel.setBackground(new Color(100, 100, 255, 100));
+        panel.setBackground(new Color(167, 199, 231));
 
       }
     });
