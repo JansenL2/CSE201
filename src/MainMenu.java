@@ -79,6 +79,18 @@ public class MainMenu {
     clearStreakButton.setText("Reset Streak");
     clearStreakButton.setBounds(400, 225, 100, 50);
 
+    JButton pinkBackgroundButton = new JButton();
+    pinkBackgroundButton.setText("Pink Background");
+    pinkBackgroundButton.setBounds(15, BUTTONHEIGHT + TOPPADDING + 115, 50, 50);
+
+    JButton greenBackgroundButton = new JButton();
+    greenBackgroundButton.setText("Green Background");
+    greenBackgroundButton.setBounds(65, BUTTONHEIGHT + TOPPADDING + 115, 50, 50);
+
+    JButton blueBackgroundButton = new JButton();
+    blueBackgroundButton.setText("Blue Background");
+    blueBackgroundButton.setBounds(115, BUTTONHEIGHT + TOPPADDING + 115, 50, 50);
+
     panel.setLayout(null);
 
     panel.add(streakLabel);
@@ -88,6 +100,10 @@ public class MainMenu {
     panel.add(button3);
     panel.add(button4);
     panel.add(clearStreakButton);
+
+    panel.add(pinkBackgroundButton);
+    panel.add(greenBackgroundButton);
+    panel.add(blueBackgroundButton);
 
     panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
     frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -147,6 +163,25 @@ public class MainMenu {
         printWriter.println(dailyStreak);
 
         printWriter.close();
+
+      }
+    });
+
+    pinkBackgroundButton.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent e) {
+        panel.setBackground(new Color(255, 100, 255, 100));
+
+      }
+    });
+    greenBackgroundButton.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent e) {
+        panel.setBackground(new Color(100, 255, 100, 100));
+
+      }
+    });
+    blueBackgroundButton.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent e) {
+        panel.setBackground(new Color(100, 100, 255, 100));
 
       }
     });
