@@ -74,6 +74,7 @@ public class SudokuUI {
         labelTable.put(4, new JLabel("Insane"));
         slider.setLabelTable(labelTable);
         slider.setPaintLabels(true);
+        dialog.getContentPane().setBackground(backgroundColor);
 
         dialog.add(slider);
 
