@@ -1,12 +1,13 @@
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Random;
 import java.util.Scanner;
 
 public class SpellingBee {
     static ArrayList<String> words = wordsList();
+    private static HashSet<String> wordsHash = new HashSet<>(words);
     
-    // This method is used to read a list of words from a text file and return it.
     public static ArrayList<String> wordsList(){
         ArrayList words = new ArrayList<String>();
         try{
@@ -42,6 +43,18 @@ public class SpellingBee {
         System.out.println(randomWord);
         System.out.println(letters);
         return letters;
+    }
+    
+    public static boolean checkEnterWord(String word){
+        return wordsHash.contains(word);
+    }
+    
+    public static int getPoints(String word) {
+        return word.length();
+    }
+    
+    public static boolean checkWin(int score) {
+        return score >= 50;
     }
     
     public static void main(String[] args) {
