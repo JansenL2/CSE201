@@ -13,8 +13,9 @@ import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 
 public class SpellingBeeGUI {
+  static Color backgroundColor;
 
-  public static void gameCallSpellingBee() {
+  public static void gameCallSpellingBee(Color backGroundColor) {
 
     int numWords = 0;
     String word = "";
@@ -70,7 +71,7 @@ public class SpellingBeeGUI {
 
     frame.add(panel);
     frame.setSize(500, 300);
-    panel.setBackground(new Color(255, 100, 255, 100));
+    panel.setBackground(backGroundColor);
 
     frame.setVisible(true);
 

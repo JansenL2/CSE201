@@ -127,7 +127,7 @@ public class MainMenu {
     button2.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
         panel.setVisible(false);
-        SpellingBeeGUI.gameCallSpellingBee();
+        SpellingBeeGUI.gameCallSpellingBee(backgroundColor);
         frame.dispose();
       }
     });
