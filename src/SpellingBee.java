@@ -25,11 +25,11 @@ public class SpellingBee {
         return words;
     }
     
-    public static ArrayList<Character> generateSevenLetters() {
+    public static ArrayList<Character> generateFiveLetters() {
         ArrayList<Character> letters = new ArrayList<Character>();
         String randomWord = null;
         
-        while (letters.size() != 7) {
+        while (letters.size() != 5) {
             letters.clear();
             randomWord = words.get(new Random().nextInt(words.size()));
             
@@ -47,14 +47,14 @@ public class SpellingBee {
     
     public static ArrayList<Character> scrambleLetters(ArrayList<Character> letters) {
         ArrayList<Character> newLetters = new ArrayList<Character>();
-        for (int i = 0; i < 7; i++) {
+        for (int i = 0; i < 5; i++) {
             newLetters.add(' ');
         }
         int index = new Random().nextInt(7);
         
-        for (int i = 0; i < 7; i++) {
+        for (int i = 0; i < 5; i++) {
             while (newLetters.get(index) != ' ') {
-                index = new Random().nextInt(7);
+                index = new Random().nextInt(5);
             }
             
             newLetters.remove(index);
@@ -78,7 +78,7 @@ public class SpellingBee {
     }
     
     public static void main(String[] args) {
-        ArrayList<Character> letters = generateSevenLetters();
+        ArrayList<Character> letters = generateFiveLetters();
         scrambleLetters(letters);
     }
 }

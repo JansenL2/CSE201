@@ -1,6 +1,7 @@
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -17,7 +18,8 @@ public class SpellingBeeGUI {
     int BUTTONHEIGHT = 25;
     int TOPPADDING = 10;
     
-    ArrayList<Character> letters = SpellingBee.generateSevenLetters();
+    ArrayList<Character> letters = SpellingBee.generateFiveLetters();
+    letters = SpellingBee.scrambleLetters(letters);
 
     JFrame frame = new JFrame("Spelling Bee");
 
@@ -29,23 +31,23 @@ public class SpellingBeeGUI {
 
     JButton button1 = new JButton();
     button1.setPreferredSize(new Dimension(100, 100));
-    button1.setText("");
+    button1.setText(letters.get(0));
     button1.setBounds(10 + 5 + 50 * (0), BUTTONHEIGHT + TOPPADDING, 50, 50);
 
     JButton button2 = new JButton();
-    button2.setText("B");
+    button2.setText(letters.get(1));
     button2.setBounds(10 + 5 + 50 * (1), BUTTONHEIGHT + TOPPADDING, 50, 50);
 
     JButton button3 = new JButton();
-    button3.setText("C");
+    button3.setText(letters.get(2));
     button3.setBounds(10 + 5 + 50 * (2), BUTTONHEIGHT + TOPPADDING, 50, 50);
 
     JButton button4 = new JButton();
-    button4.setText("D");
+    button4.setText(letters.get(3));
     button4.setBounds(10 + 5 + 50 * (3), BUTTONHEIGHT + TOPPADDING, 50, 50);
 
     JButton button5 = new JButton();
-    button5.setText("E");
+    button5.setText(letters.get(4));
     button5.setBounds(10 + 5 + 50 * (4), BUTTONHEIGHT + TOPPADDING, 50, 50);
 
     panel.setLayout(null);
