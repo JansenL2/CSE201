@@ -1,15 +1,16 @@
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 public class SpellingBee {
     static ArrayList<String> words = wordsList();
     
- // This method is used to read a list of words from a text file and return it.
+    // This method is used to read a list of words from a text file and return it.
     public static ArrayList<String> wordsList(){
         ArrayList words = new ArrayList<String>();
         try{
-            Scanner sr = new Scanner(new File("WordleWords.txt"));
+            Scanner sr = new Scanner(new File("words_alpha.txt"));
             String word = "";
             while (sr.hasNextLine()){
                 word = sr.nextLine();
@@ -21,5 +22,29 @@ public class SpellingBee {
             e.getMessage();
         }
         return words;
+    }
+    
+    public static ArrayList<Character> generateSevenLetters() {
+        ArrayList<Character> letters = new ArrayList<Character>();
+        String randomWord = null;
+        
+        while (letters.size() != 7) {
+            letters.clear();
+            randomWord = words.get(new Random().nextInt(words.size()));
+            
+            for (int i = 0; i < randomWord.length(); i++) {
+                if (!letters.contains(randomWord.charAt(i))) {
+                    letters.add(randomWord.charAt(i));
+                }
+            }
+                
+        }
+        System.out.println(randomWord);
+        System.out.println(letters);
+        return letters;
+    }
+    
+    public static void main(String[] args) {
+        generateSevenLetters();
     }
 }
