@@ -51,6 +51,10 @@ public class SpellingBeeGUI {
     button5.setText("E");
     button5.setBounds(10 + 5 + 50 * (4), BUTTONHEIGHT + TOPPADDING, 50, 50);
 
+    JButton clearAllButton = new JButton();
+    button5.setText("Clear All");
+    button5.setBounds(10 + 5 + 50 * (5), BUTTONHEIGHT + TOPPADDING, 100, 50);
+
     JButton backButton = new JButton();
     backButton.setText("Main Menu");
 
@@ -87,6 +91,12 @@ public class SpellingBeeGUI {
         }
 
         ;
+      }
+    });
+
+    clearAllButton.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent e) {
+
       }
     });
 
