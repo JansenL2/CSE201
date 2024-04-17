@@ -45,6 +45,26 @@ public class SpellingBee {
         return letters;
     }
     
+    public static ArrayList<Character> scrambleLetters(ArrayList<Character> letters) {
+        ArrayList<Character> newLetters = new ArrayList<Character>();
+        for (int i = 0; i < 7; i++) {
+            newLetters.add(' ');
+        }
+        int index = new Random().nextInt(7);
+        
+        for (int i = 0; i < 7; i++) {
+            while (newLetters.get(index) != ' ') {
+                index = new Random().nextInt(7);
+            }
+            
+            newLetters.remove(index);
+            newLetters.add(index, letters.get(i));
+        }
+        
+        System.out.println(newLetters);
+        return newLetters;
+    }
+    
     public static boolean checkEnterWord(String word){
         return wordsHash.contains(word);
     }
@@ -58,6 +78,7 @@ public class SpellingBee {
     }
     
     public static void main(String[] args) {
-        generateSevenLetters();
+        ArrayList<Character> letters = generateSevenLetters();
+        scrambleLetters(letters);
     }
 }

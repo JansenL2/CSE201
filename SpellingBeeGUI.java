@@ -16,6 +16,8 @@ public class SpellingBeeGUI {
     String word = "";
     int BUTTONHEIGHT = 25;
     int TOPPADDING = 10;
+    
+    ArrayList<Character> letters = SpellingBee.generateSevenLetters();
 
     JFrame frame = new JFrame("Spelling Bee");
 
@@ -27,7 +29,7 @@ public class SpellingBeeGUI {
 
     JButton button1 = new JButton();
     button1.setPreferredSize(new Dimension(100, 100));
-    button1.setText("A");
+    button1.setText("");
     button1.setBounds(10 + 5 + 50 * (0), BUTTONHEIGHT + TOPPADDING, 50, 50);
 
     JButton button2 = new JButton();
