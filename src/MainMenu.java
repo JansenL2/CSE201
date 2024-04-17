@@ -18,6 +18,7 @@ import javax.swing.WindowConstants;
 
 public class MainMenu {
   static int dailyStreak;
+  static Color backgroundColor = new Color(255, 209, 220);
 
   public static void main(String[] args) throws IOException {
 
@@ -110,7 +111,7 @@ public class MainMenu {
 
     frame.add(panel);
 
-    panel.setBackground(new Color(255, 209, 220));
+    panel.setBackground(backgroundColor);
 
     frame.setVisible(true);
 
@@ -169,19 +170,23 @@ public class MainMenu {
 
     pinkBackgroundButton.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
-        panel.setBackground(new Color(255, 209, 220));
+
+        backgroundColor = new Color(255, 209, 220);
+        panel.setBackground(backgroundColor);
 
       }
     });
     greenBackgroundButton.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
-        panel.setBackground(new Color(193, 225, 193));
+        backgroundColor = new Color(193, 225, 193);
+        panel.setBackground(backgroundColor);
 
       }
     });
     blueBackgroundButton.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
-        panel.setBackground(new Color(167, 199, 231));
+        backgroundColor = new Color(167, 199, 231);
+        panel.setBackground(backgroundColor);
 
       }
     });
