@@ -142,7 +142,7 @@ public class MainMenu {
     button4.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
         panel.setVisible(false);
-        WordleGUI.gameCallWordle();
+        WordleGUI.gameCallWordle(backgroundColor);
         frame.dispose();
       }
     });
