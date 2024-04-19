@@ -22,13 +22,12 @@ public class SpellingBeeGUI {
     String word = "";
     int BUTTONHEIGHT = 25;
     int TOPPADDING = 10;
-    
+
     ArrayList<Character> letters = SpellingBee.generateFiveLetters();
     try {
-        letters = SpellingBee.scrambleLetters(letters);
-    }
-    catch (Exception e) {
-        System.out.println("scramble error");
+      letters = SpellingBee.scrambleLetters(letters);
+    } catch (Exception e) {
+      System.out.println("scramble error");
     }
 
     JFrame frame = new JFrame("Spelling Bee");
@@ -61,8 +60,8 @@ public class SpellingBeeGUI {
     button5.setBounds(10 + 5 + 50 * (4), BUTTONHEIGHT + TOPPADDING, 50, 50);
 
     JButton clearAllButton = new JButton();
-    button5.setText("Clear All");
-    button5.setBounds(10 + 5 + 50 * (5), BUTTONHEIGHT + TOPPADDING, 100, 50);
+    clearAllButton.setText("Clear All");
+    clearAllButton.setBounds(10 + 5 + 50 * (6), BUTTONHEIGHT + TOPPADDING, 100, 50);
 
     JButton backButton = new JButton();
     backButton.setText("Main Menu");
@@ -77,6 +76,7 @@ public class SpellingBeeGUI {
     panel.add(button3);
     panel.add(button4);
     panel.add(button5);
+    panel.add(clearAllButton);
     panel.add(backButton);
 
     panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
