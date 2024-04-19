@@ -25,13 +25,13 @@ public class SpellingBee {
         return words;
     }
     
-    public static ArrayList<Character> generateFiveLetters() {
+    public static ArrayList<Character> generateSevenLetters() {
         ArrayList<Character> letters = new ArrayList<Character>();
         String randomWord = null;
         
-        while (letters.size() != 5) {
+        while (letters.size() != 7) {
             letters.clear();
-            randomWord = words.get(new Random().nextInt(words.size()));
+            randomWord = words.get(new Random().nextInt(words.size())).toUpperCase();
             
             for (int i = 0; i < randomWord.length(); i++) {
                 if (!letters.contains(randomWord.charAt(i))) {
@@ -40,28 +40,24 @@ public class SpellingBee {
             }
                 
         }
-        System.out.println(randomWord);
-        System.out.println(letters);
         return letters;
     }
     
     public static ArrayList<Character> scrambleLetters(ArrayList<Character> letters) {
         ArrayList<Character> newLetters = new ArrayList<Character>();
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < letters.size(); i++) {
             newLetters.add(' ');
         }
         int index = new Random().nextInt(7);
         
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < letters.size(); i++) {
             while (newLetters.get(index) != ' ') {
-                index = new Random().nextInt(5);
+                index = new Random().nextInt(letters.size());
             }
             
             newLetters.remove(index);
             newLetters.add(index, letters.get(i));
         }
-        
-        System.out.println(newLetters);
         return newLetters;
     }
     
@@ -70,7 +66,7 @@ public class SpellingBee {
     }
     
     public static int getPoints(String word) {
-        return word.length();
+        return word.length() * word.length() / 3;
     }
     
     public static boolean checkWin(int score) {
@@ -78,7 +74,7 @@ public class SpellingBee {
     }
     
     public static void main(String[] args) {
-        ArrayList<Character> letters = generateFiveLetters();
+        ArrayList<Character> letters = generateSevenLetters();
         scrambleLetters(letters);
     }
 }
