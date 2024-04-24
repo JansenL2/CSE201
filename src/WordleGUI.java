@@ -6,12 +6,15 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
 
 public class WordleGUI {
@@ -20,6 +23,8 @@ public class WordleGUI {
   static String word = "";
   static boolean gameOver = false;
   static Color backgroundColor;
+  private static Long timer;
+  static JLabel timerLabel;
 
   public static void gameCallWordle(Color backgroundColor) {
 
@@ -27,6 +32,8 @@ public class WordleGUI {
     currentWord = 0;
     word = "";
     gameOver = false;
+    
+    timer = (long) 0;
 
     String answer = Wordle.generateWord();
     System.out.print(answer);
@@ -40,9 +47,6 @@ public class WordleGUI {
 
     JPanel panel = new JPanel();
 
-    JLabel wordleHeader = new JLabel("Wordle");
-    Dimension size = wordleHeader.getPreferredSize();
-    wordleHeader.setBounds(215, TOPPADDING, size.width, size.height);
 
     panel.setLayout(null);
 
@@ -62,8 +66,6 @@ public class WordleGUI {
       panel.add(button);
     }
 
-    panel.add(wordleHeader);
-
     JButton backButton = new JButton();
     backButton.setText("Main Menu");
 
@@ -72,6 +74,11 @@ public class WordleGUI {
 
     panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
     frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+    
+    timerLabel = new JLabel("00:00:00");
+    Dimension size = timerLabel.getPreferredSize();
+    timerLabel.setBounds(212, TOPPADDING, size.width + 50, size.height);
+    panel.add(timerLabel);
 
     frame.add(panel);
     frame.setSize(500, 400);
@@ -94,6 +101,7 @@ public class WordleGUI {
     });
 
     frame.setVisible(true);
+    timer();
 
     frame.addKeyListener(new KeyListener() {
       @Override
@@ -173,5 +181,25 @@ public class WordleGUI {
 
     frame.setFocusable(true);
     frame.requestFocusInWindow();
+    
+    
   }
+  
+  public static void timer() {
+      Timer timer = new Timer(true);
+      TimerTask task = new TimerTask() {
+        public void run() {
+            
+            if (!gameOver) {
+              WordleGUI.timer += 1000;
+              long hours = (WordleGUI.timer / 3600000) % 24;
+              long minutes = (WordleGUI.timer / 60000) % 60;
+              long seconds = (WordleGUI.timer / 1000) % 60;
+              String formattedTime = String.format("%02d:%02d:%02d", hours, minutes, seconds);
+              SwingUtilities.invokeLater(() -> WordleGUI.timerLabel.setText(formattedTime));
+            }
+        }
+      };
+      timer.scheduleAtFixedRate(task, 0, 1000);
+    }
 }
