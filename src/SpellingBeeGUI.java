@@ -5,12 +5,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
 
 public class SpellingBeeGUI {
@@ -20,11 +23,15 @@ public class SpellingBeeGUI {
   static ArrayList<String> words = new ArrayList<String>();
   static String wordsString = "";
   static String word = "";
+  private static Long timer;
+  static JLabel timerLabel;
 
   public static void gameCallSpellingBee(Color backGroundColor) {
     int BUTTONHEIGHT = 25;
     int TOPPADDING = 20 + 5;
     
+    timer = (long) 0;
+        
     word = "";
     wordsString = "";
     words = new ArrayList<String>();
@@ -92,6 +99,9 @@ public class SpellingBeeGUI {
     JLabel guessedWordsLabel = new JLabel(wordsString);
     guessedWordsLabel.setBounds(30, (BUTTONHEIGHT * 5), size.width * 2, size.height * 8);
     guessedWordsLabel.setVerticalAlignment(guessedWordsLabel.TOP);
+    
+    timerLabel = new JLabel("00:00:00");
+    timerLabel.setBounds(225, TOPPADDING - 15, size.width, size.height);
 
     panel.setLayout(null);
 
@@ -108,6 +118,7 @@ public class SpellingBeeGUI {
     panel.add(clearAllButton);
     panel.add(backButton);
     panel.add(guessedWordsLabel);
+    panel.add(timerLabel);
 
     panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
     frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -117,6 +128,7 @@ public class SpellingBeeGUI {
     panel.setBackground(backGroundColor);
 
     frame.setVisible(true);
+    timer();
 
     backButton.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
@@ -257,5 +269,20 @@ public class SpellingBeeGUI {
   private static boolean shouldAddWord() {
       return SpellingBee.checkEnterWord(word) && !words.contains(word) && word.length() >= 4;
   }
+  
+  public static void timer() {
+      Timer timer = new Timer(true);
+      TimerTask task = new TimerTask() {
+        public void run() {
+          SpellingBeeGUI.timer += 1000;
+          long hours = (SpellingBeeGUI.timer / 3600000) % 24;
+          long minutes = (SpellingBeeGUI.timer / 60000) % 60;
+          long seconds = (SpellingBeeGUI.timer / 1000) % 60;
+          String formattedTime = String.format("%02d:%02d:%02d", hours, minutes, seconds);
+          SwingUtilities.invokeLater(() -> SpellingBeeGUI.timerLabel.setText(formattedTime));
+        }
+      };
+      timer.scheduleAtFixedRate(task, 0, 1000);
+    }
 
 }
