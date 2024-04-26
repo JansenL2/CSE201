@@ -151,28 +151,31 @@ public class MainMenu {
     clearStreakButton.setBorderPainted(false);
 
     JButton pinkBackgroundButton = new JButton();
-    pinkBackgroundButton.setText("Pink Background");
+    pinkBackgroundButton.setText("");
     pinkBackgroundButton.setBounds(15, BUTTONHEIGHT + TOPPADDING + 115 + 100, 50, 50);
     pinkBackgroundButton.setFocusPainted(false);
-    pinkBackgroundButton.setBackground(titleColor);
+    pinkBackgroundButton.setBackground(new Color(255, 209, 220));
     pinkBackgroundButton.setForeground(Color.WHITE);
-    pinkBackgroundButton.setBorderPainted(false);
+    pinkBackgroundButton
+        .setBorder(BorderFactory.createLineBorder(new Color(255 / 3, 209 / 3, 220 / 3)));
 
     JButton greenBackgroundButton = new JButton();
-    greenBackgroundButton.setText("Green Background");
+    greenBackgroundButton.setText("");
     greenBackgroundButton.setBounds(65, BUTTONHEIGHT + TOPPADDING + 115 + 100, 50, 50);
     greenBackgroundButton.setFocusPainted(false);
-    greenBackgroundButton.setBackground(titleColor);
+    greenBackgroundButton.setBackground(new Color(193, 225, 193));
     greenBackgroundButton.setForeground(Color.WHITE);
-    greenBackgroundButton.setBorderPainted(false);
+    greenBackgroundButton
+        .setBorder(BorderFactory.createLineBorder(new Color(193 / 3, 225 / 3, 193 / 3)));
 
     JButton blueBackgroundButton = new JButton();
-    blueBackgroundButton.setText("Blue Background");
+    blueBackgroundButton.setText("");
     blueBackgroundButton.setBounds(115, BUTTONHEIGHT + TOPPADDING + 115 + 100, 50, 50);
     blueBackgroundButton.setFocusPainted(false);
-    blueBackgroundButton.setBackground(titleColor);
+    blueBackgroundButton.setBackground(new Color(167, 199, 231));
     blueBackgroundButton.setForeground(Color.WHITE);
-    blueBackgroundButton.setBorderPainted(false);
+    blueBackgroundButton
+        .setBorder(BorderFactory.createLineBorder(new Color(167 / 3, 199 / 3, 231 / 3)));
 
     panel.setLayout(null);
 
@@ -271,9 +274,7 @@ public class MainMenu {
         button3.setBackground(titleColor);
         button4.setBackground(titleColor);
         button5.setBackground(titleColor);
-        pinkBackgroundButton.setBackground(titleColor);
-        greenBackgroundButton.setBackground(titleColor);
-        blueBackgroundButton.setBackground(titleColor);
+
         clearStreakButton.setBackground(titleColor);
         button2.setBorder(BorderFactory.createLineBorder(backgroundColor));
         button3.setBorder(BorderFactory.createLineBorder(backgroundColor));
@@ -293,9 +294,7 @@ public class MainMenu {
         button3.setBackground(titleColor);
         button4.setBackground(titleColor);
         button5.setBackground(titleColor);
-        pinkBackgroundButton.setBackground(titleColor);
-        greenBackgroundButton.setBackground(titleColor);
-        blueBackgroundButton.setBackground(titleColor);
+
         clearStreakButton.setBackground(titleColor);
         button2.setBorder(BorderFactory.createLineBorder(backgroundColor));
         button3.setBorder(BorderFactory.createLineBorder(backgroundColor));
@@ -314,9 +313,7 @@ public class MainMenu {
         button3.setBackground(titleColor);
         button4.setBackground(titleColor);
         button5.setBackground(titleColor);
-        pinkBackgroundButton.setBackground(titleColor);
-        greenBackgroundButton.setBackground(titleColor);
-        blueBackgroundButton.setBackground(titleColor);
+
         clearStreakButton.setBackground(titleColor);
         button2.setBorder(BorderFactory.createLineBorder(backgroundColor));
         button3.setBorder(BorderFactory.createLineBorder(backgroundColor));
