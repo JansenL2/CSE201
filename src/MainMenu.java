@@ -15,6 +15,9 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.UIManager;
+import javax.swing.UIManager.LookAndFeelInfo;
+import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.WindowConstants;
 
 public class MainMenu {
@@ -24,8 +27,35 @@ public class MainMenu {
 
   public static void main(String[] args) throws IOException {
 
+    String className = getLookAndFeelClassName("Metal");
+    try {
+      UIManager.setLookAndFeel(className);
+    } catch (ClassNotFoundException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    } catch (InstantiationException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    } catch (IllegalAccessException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    } catch (UnsupportedLookAndFeelException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
+
     mainCall();
 
+  }
+
+  public static String getLookAndFeelClassName(String nameSnippet) {
+    LookAndFeelInfo[] plafs = UIManager.getInstalledLookAndFeels();
+    for (LookAndFeelInfo info : plafs) {
+      if (info.getName().contains(nameSnippet)) {
+        return info.getClassName();
+      }
+    }
+    return null;
   }
 
   public static void mainCall() throws IOException {
@@ -71,37 +101,65 @@ public class MainMenu {
     JButton button1 = new JButton();
     button1.setText("Close");
     button1.setBounds(frame.getWidth() / 2 - 50, BUTTONHEIGHT + TOPPADDING + 115 + 100, 100, 50);
+    button1.setFocusPainted(false);
+    button1.setBackground(titleColor);
+    button1.setForeground(Color.WHITE);
 
     JButton button2 = new JButton();
     button2.setText("Spelling Bee");
+    button2.setFocusPainted(false);
+    button2.setBackground(titleColor);
+    button2.setForeground(Color.WHITE);
     button2.setBounds(150 * (2) - (75 * (3) - 25), BUTTONHEIGHT + TOPPADDING + 80, 150, 75);
 
     JButton button3 = new JButton();
     button3.setText("Sudoku");
     button3.setBounds(150 * (2) - (75 * (3) - 25), BUTTONHEIGHT + TOPPADDING + 5, 150, 75);
+    button3.setFocusPainted(false);
+    button3.setBackground(titleColor);
+    button3.setForeground(Color.WHITE);
 
     JButton button4 = new JButton();
     button4.setText("Wordle");
     button4.setBounds(150 * (3) - (75 * (3) - 25), BUTTONHEIGHT + TOPPADDING + 80, 150, 75);
+    button4.setFocusPainted(false);
+    button4.setBackground(titleColor);
+    button4.setForeground(Color.WHITE);
 
     JButton button5 = new JButton();
     button5.setText("Connections");
     button5.setBounds(150 * (3) - (75 * (3) - 25), BUTTONHEIGHT + TOPPADDING + 5, 150, 75);
+    button5.setFocusPainted(false);
+    button5.setBackground(titleColor);
+    button5.setForeground(Color.WHITE);
+
     JButton clearStreakButton = new JButton();
     clearStreakButton.setText("Reset Streak");
     clearStreakButton.setBounds(380, BUTTONHEIGHT + TOPPADDING + 115 + 100, 100, 50);
+    clearStreakButton.setFocusPainted(false);
+    clearStreakButton.setBackground(titleColor);
+    clearStreakButton.setForeground(Color.WHITE);
 
     JButton pinkBackgroundButton = new JButton();
     pinkBackgroundButton.setText("Pink Background");
     pinkBackgroundButton.setBounds(15, BUTTONHEIGHT + TOPPADDING + 115 + 100, 50, 50);
+    pinkBackgroundButton.setFocusPainted(false);
+    pinkBackgroundButton.setBackground(titleColor);
+    pinkBackgroundButton.setForeground(Color.WHITE);
 
     JButton greenBackgroundButton = new JButton();
     greenBackgroundButton.setText("Green Background");
     greenBackgroundButton.setBounds(65, BUTTONHEIGHT + TOPPADDING + 115 + 100, 50, 50);
+    greenBackgroundButton.setFocusPainted(false);
+    greenBackgroundButton.setBackground(titleColor);
+    greenBackgroundButton.setForeground(Color.WHITE);
 
     JButton blueBackgroundButton = new JButton();
     blueBackgroundButton.setText("Blue Background");
     blueBackgroundButton.setBounds(115, BUTTONHEIGHT + TOPPADDING + 115 + 100, 50, 50);
+    blueBackgroundButton.setFocusPainted(false);
+    blueBackgroundButton.setBackground(titleColor);
+    blueBackgroundButton.setForeground(Color.WHITE);
 
     panel.setLayout(null);
 
@@ -195,6 +253,15 @@ public class MainMenu {
         titleColor = new Color(255 / 3, 209 / 3, 220 / 3);
         panel.setBackground(backgroundColor);
         titleLabel.setForeground(titleColor);
+        button1.setBackground(titleColor);
+        button2.setBackground(titleColor);
+        button3.setBackground(titleColor);
+        button4.setBackground(titleColor);
+        button5.setBackground(titleColor);
+        pinkBackgroundButton.setBackground(titleColor);
+        greenBackgroundButton.setBackground(titleColor);
+        blueBackgroundButton.setBackground(titleColor);
+        clearStreakButton.setBackground(titleColor);
 
       }
     });
@@ -204,7 +271,15 @@ public class MainMenu {
         titleColor = new Color(193 / 3, 225 / 3, 193 / 3);
         panel.setBackground(backgroundColor);
         titleLabel.setForeground(titleColor);
-
+        button1.setBackground(titleColor);
+        button2.setBackground(titleColor);
+        button3.setBackground(titleColor);
+        button4.setBackground(titleColor);
+        button5.setBackground(titleColor);
+        pinkBackgroundButton.setBackground(titleColor);
+        greenBackgroundButton.setBackground(titleColor);
+        blueBackgroundButton.setBackground(titleColor);
+        clearStreakButton.setBackground(titleColor);
       }
     });
     blueBackgroundButton.addActionListener(new ActionListener() {
@@ -213,6 +288,15 @@ public class MainMenu {
         titleColor = new Color(167 / 3, 199 / 3, 231 / 3);
         panel.setBackground(backgroundColor);
         titleLabel.setForeground(titleColor);
+        button1.setBackground(titleColor);
+        button2.setBackground(titleColor);
+        button3.setBackground(titleColor);
+        button4.setBackground(titleColor);
+        button5.setBackground(titleColor);
+        pinkBackgroundButton.setBackground(titleColor);
+        greenBackgroundButton.setBackground(titleColor);
+        blueBackgroundButton.setBackground(titleColor);
+        clearStreakButton.setBackground(titleColor);
 
       }
     });
