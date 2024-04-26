@@ -275,6 +275,10 @@ public class MainMenu {
         greenBackgroundButton.setBackground(titleColor);
         blueBackgroundButton.setBackground(titleColor);
         clearStreakButton.setBackground(titleColor);
+        button2.setBorder(BorderFactory.createLineBorder(backgroundColor));
+        button3.setBorder(BorderFactory.createLineBorder(backgroundColor));
+        button4.setBorder(BorderFactory.createLineBorder(backgroundColor));
+        button5.setBorder(BorderFactory.createLineBorder(backgroundColor));
 
       }
     });
@@ -293,6 +297,10 @@ public class MainMenu {
         greenBackgroundButton.setBackground(titleColor);
         blueBackgroundButton.setBackground(titleColor);
         clearStreakButton.setBackground(titleColor);
+        button2.setBorder(BorderFactory.createLineBorder(backgroundColor));
+        button3.setBorder(BorderFactory.createLineBorder(backgroundColor));
+        button4.setBorder(BorderFactory.createLineBorder(backgroundColor));
+        button5.setBorder(BorderFactory.createLineBorder(backgroundColor));
       }
     });
     blueBackgroundButton.addActionListener(new ActionListener() {
@@ -310,6 +318,10 @@ public class MainMenu {
         greenBackgroundButton.setBackground(titleColor);
         blueBackgroundButton.setBackground(titleColor);
         clearStreakButton.setBackground(titleColor);
+        button2.setBorder(BorderFactory.createLineBorder(backgroundColor));
+        button3.setBorder(BorderFactory.createLineBorder(backgroundColor));
+        button4.setBorder(BorderFactory.createLineBorder(backgroundColor));
+        button5.setBorder(BorderFactory.createLineBorder(backgroundColor));
 
       }
     });
