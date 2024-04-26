@@ -104,6 +104,7 @@ public class MainMenu {
     button1.setFocusPainted(false);
     button1.setBackground(titleColor);
     button1.setForeground(Color.WHITE);
+    button1.setBorderPainted(false);
 
     JButton button2 = new JButton();
     button2.setText("Spelling Bee");
@@ -111,6 +112,8 @@ public class MainMenu {
     button2.setBackground(titleColor);
     button2.setForeground(Color.WHITE);
     button2.setBounds(150 * (2) - (75 * (3) - 25), BUTTONHEIGHT + TOPPADDING + 90, 150, 75);
+    // button2.setBorderPainted(false);
+    button2.setBorder(BorderFactory.createLineBorder(backgroundColor));
 
     JButton button3 = new JButton();
     button3.setText("Sudoku");
@@ -118,6 +121,8 @@ public class MainMenu {
     button3.setFocusPainted(false);
     button3.setBackground(titleColor);
     button3.setForeground(Color.WHITE);
+    // button3.setBorderPainted(false);
+    button3.setBorder(BorderFactory.createLineBorder(backgroundColor));
 
     JButton button4 = new JButton();
     button4.setText("Wordle");
@@ -125,6 +130,8 @@ public class MainMenu {
     button4.setFocusPainted(false);
     button4.setBackground(titleColor);
     button4.setForeground(Color.WHITE);
+    // button4.setBorderPainted(false);
+    button4.setBorder(BorderFactory.createLineBorder(backgroundColor));
 
     JButton button5 = new JButton();
     button5.setText("Connections");
@@ -132,6 +139,8 @@ public class MainMenu {
     button5.setFocusPainted(false);
     button5.setBackground(titleColor);
     button5.setForeground(Color.WHITE);
+    // button5.setBorderPainted(false);
+    button5.setBorder(BorderFactory.createLineBorder(backgroundColor));
 
     JButton clearStreakButton = new JButton();
     clearStreakButton.setText("Reset Streak");
@@ -139,6 +148,7 @@ public class MainMenu {
     clearStreakButton.setFocusPainted(false);
     clearStreakButton.setBackground(titleColor);
     clearStreakButton.setForeground(Color.WHITE);
+    clearStreakButton.setBorderPainted(false);
 
     JButton pinkBackgroundButton = new JButton();
     pinkBackgroundButton.setText("Pink Background");
@@ -146,6 +156,7 @@ public class MainMenu {
     pinkBackgroundButton.setFocusPainted(false);
     pinkBackgroundButton.setBackground(titleColor);
     pinkBackgroundButton.setForeground(Color.WHITE);
+    pinkBackgroundButton.setBorderPainted(false);
 
     JButton greenBackgroundButton = new JButton();
     greenBackgroundButton.setText("Green Background");
@@ -153,6 +164,7 @@ public class MainMenu {
     greenBackgroundButton.setFocusPainted(false);
     greenBackgroundButton.setBackground(titleColor);
     greenBackgroundButton.setForeground(Color.WHITE);
+    greenBackgroundButton.setBorderPainted(false);
 
     JButton blueBackgroundButton = new JButton();
     blueBackgroundButton.setText("Blue Background");
@@ -160,6 +172,7 @@ public class MainMenu {
     blueBackgroundButton.setFocusPainted(false);
     blueBackgroundButton.setBackground(titleColor);
     blueBackgroundButton.setForeground(Color.WHITE);
+    blueBackgroundButton.setBorderPainted(false);
 
     panel.setLayout(null);
 
