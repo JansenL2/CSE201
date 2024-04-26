@@ -20,6 +20,7 @@ import javax.swing.WindowConstants;
 public class MainMenu {
   static int dailyStreak;
   static Color backgroundColor = new Color(255, 209, 220);
+  static Color titleColor = new Color(255 / 3, 209 / 3, 220 / 3);
 
   public static void main(String[] args) throws IOException {
 
@@ -65,6 +66,7 @@ public class MainMenu {
     size = titleLabel.getPreferredSize();
     titleLabel.setBounds(185, TOPPADDING + 15, 150, 50);
     titleLabel.setFont(new Font("Serif", Font.BOLD, 40));
+    titleLabel.setForeground(titleColor);
 
     JButton button1 = new JButton();
     button1.setText("Close");
@@ -72,20 +74,19 @@ public class MainMenu {
 
     JButton button2 = new JButton();
     button2.setText("Spelling Bee");
-    button2.setBounds(10 + 5 + 100 * (1) - 65, BUTTONHEIGHT + TOPPADDING + 80, 100, 50);
+    button2.setBounds(150 * (2) - (75 * (3) - 25), BUTTONHEIGHT + TOPPADDING + 80, 150, 75);
 
     JButton button3 = new JButton();
     button3.setText("Sudoku");
-    button3.setBounds(10 + 5 + 100 * (2) - 65, BUTTONHEIGHT + TOPPADDING + 80, 100, 50);
+    button3.setBounds(150 * (2) - (75 * (3) - 25), BUTTONHEIGHT + TOPPADDING + 5, 150, 75);
 
     JButton button4 = new JButton();
     button4.setText("Wordle");
-    button4.setBounds(10 + 5 + 100 * (3) - 65, BUTTONHEIGHT + TOPPADDING + 80, 100, 50);
+    button4.setBounds(150 * (3) - (75 * (3) - 25), BUTTONHEIGHT + TOPPADDING + 80, 150, 75);
 
     JButton button5 = new JButton();
     button5.setText("Connections");
-    button5.setBounds(10 + 5 + 100 * (4) - 65, BUTTONHEIGHT + TOPPADDING + 80, 100, 50);
-
+    button5.setBounds(150 * (3) - (75 * (3) - 25), BUTTONHEIGHT + TOPPADDING + 5, 150, 75);
     JButton clearStreakButton = new JButton();
     clearStreakButton.setText("Reset Streak");
     clearStreakButton.setBounds(380, BUTTONHEIGHT + TOPPADDING + 115 + 100, 100, 50);
@@ -191,21 +192,27 @@ public class MainMenu {
       public void actionPerformed(ActionEvent e) {
 
         backgroundColor = new Color(255, 209, 220);
+        titleColor = new Color(255 / 3, 209 / 3, 220 / 3);
         panel.setBackground(backgroundColor);
+        titleLabel.setForeground(titleColor);
 
       }
     });
     greenBackgroundButton.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
         backgroundColor = new Color(193, 225, 193);
+        titleColor = new Color(193 / 3, 225 / 3, 193 / 3);
         panel.setBackground(backgroundColor);
+        titleLabel.setForeground(titleColor);
 
       }
     });
     blueBackgroundButton.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
         backgroundColor = new Color(167, 199, 231);
+        titleColor = new Color(167 / 3, 199 / 3, 231 / 3);
         panel.setBackground(backgroundColor);
+        titleLabel.setForeground(titleColor);
 
       }
     });
