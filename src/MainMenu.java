@@ -66,15 +66,19 @@ public class MainMenu {
 
     JButton button2 = new JButton();
     button2.setText("Spelling Bee");
-    button2.setBounds(10 + 5 + 100 * (1), BUTTONHEIGHT + TOPPADDING, 100, 50);
+    button2.setBounds(10 + 5 + 100 * (1) - 65, BUTTONHEIGHT + TOPPADDING, 100, 50);
 
     JButton button3 = new JButton();
     button3.setText("Sudoku");
-    button3.setBounds(10 + 5 + 100 * (2), BUTTONHEIGHT + TOPPADDING, 100, 50);
+    button3.setBounds(10 + 5 + 100 * (2) - 65, BUTTONHEIGHT + TOPPADDING, 100, 50);
 
     JButton button4 = new JButton();
     button4.setText("Wordle");
-    button4.setBounds(10 + 5 + 100 * (3), BUTTONHEIGHT + TOPPADDING, 100, 50);
+    button4.setBounds(10 + 5 + 100 * (3) - 65, BUTTONHEIGHT + TOPPADDING, 100, 50);
+
+    JButton button5 = new JButton();
+    button5.setText("Connections");
+    button5.setBounds(10 + 5 + 100 * (4) - 65, BUTTONHEIGHT + TOPPADDING, 100, 50);
 
     JButton clearStreakButton = new JButton();
     clearStreakButton.setText("Reset Streak");
@@ -96,10 +100,11 @@ public class MainMenu {
 
     panel.add(streakLabel);
 
-    panel.add(button1);
-    panel.add(button2);
-    panel.add(button3);
-    panel.add(button4);
+    panel.add(button1); // close
+    panel.add(button2); // spelling bee
+    panel.add(button3); // sudoku
+    panel.add(button4); // Wordle
+    panel.add(button5); // connections
     panel.add(clearStreakButton);
 
     panel.add(pinkBackgroundButton);
@@ -144,6 +149,13 @@ public class MainMenu {
         panel.setVisible(false);
         WordleGUI.gameCallWordle(backgroundColor);
         frame.dispose();
+      }
+    });
+    button5.addActionListener(new ActionListener() {
+      public void actionPerformed(ActionEvent e) {
+        // panel.setVisible(false);
+        // WordleGUI.gameCallWordle(backgroundColor);
+        // frame.dispose();
       }
     });
     clearStreakButton.addActionListener(new ActionListener() {
