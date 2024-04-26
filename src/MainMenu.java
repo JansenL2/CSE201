@@ -110,25 +110,25 @@ public class MainMenu {
     button2.setFocusPainted(false);
     button2.setBackground(titleColor);
     button2.setForeground(Color.WHITE);
-    button2.setBounds(150 * (2) - (75 * (3) - 25), BUTTONHEIGHT + TOPPADDING + 80, 150, 75);
+    button2.setBounds(150 * (2) - (75 * (3) - 25), BUTTONHEIGHT + TOPPADDING + 90, 150, 75);
 
     JButton button3 = new JButton();
     button3.setText("Sudoku");
-    button3.setBounds(150 * (2) - (75 * (3) - 25), BUTTONHEIGHT + TOPPADDING + 5, 150, 75);
+    button3.setBounds(150 * (2) - (75 * (3) - 25), BUTTONHEIGHT + TOPPADDING + 15, 150, 75);
     button3.setFocusPainted(false);
     button3.setBackground(titleColor);
     button3.setForeground(Color.WHITE);
 
     JButton button4 = new JButton();
     button4.setText("Wordle");
-    button4.setBounds(150 * (3) - (75 * (3) - 25), BUTTONHEIGHT + TOPPADDING + 80, 150, 75);
+    button4.setBounds(150 * (3) - (75 * (3) - 25), BUTTONHEIGHT + TOPPADDING + 90, 150, 75);
     button4.setFocusPainted(false);
     button4.setBackground(titleColor);
     button4.setForeground(Color.WHITE);
 
     JButton button5 = new JButton();
     button5.setText("Connections");
-    button5.setBounds(150 * (3) - (75 * (3) - 25), BUTTONHEIGHT + TOPPADDING + 5, 150, 75);
+    button5.setBounds(150 * (3) - (75 * (3) - 25), BUTTONHEIGHT + TOPPADDING + 15, 150, 75);
     button5.setFocusPainted(false);
     button5.setBackground(titleColor);
     button5.setForeground(Color.WHITE);
