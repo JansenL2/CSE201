@@ -32,7 +32,7 @@ public class WordleGUI {
     currentWord = 0;
     word = "";
     gameOver = false;
-    
+
     timer = (long) 0;
 
     String answer = Wordle.generateWord();
@@ -46,7 +46,6 @@ public class WordleGUI {
     JFrame frame = new JFrame("Wordle");
 
     JPanel panel = new JPanel();
-
 
     panel.setLayout(null);
 
@@ -70,11 +69,16 @@ public class WordleGUI {
     backButton.setText("Main Menu");
 
     backButton.setBounds(375, 300, 100, 50);
+    backButton.setFocusPainted(false);
+    backButton.setBackground(new Color(backgroundColor.getRed() / 3, backgroundColor.getGreen() / 3,
+        backgroundColor.getBlue() / 3));
+    backButton.setForeground(Color.WHITE);
+    backButton.setBorderPainted(false);
     panel.add(backButton);
 
     panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
     frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-    
+
     timerLabel = new JLabel("00:00:00");
     Dimension size = timerLabel.getPreferredSize();
     timerLabel.setBounds(212, TOPPADDING, size.width + 50, size.height);
@@ -181,25 +185,24 @@ public class WordleGUI {
 
     frame.setFocusable(true);
     frame.requestFocusInWindow();
-    
-    
+
   }
-  
+
   public static void timer() {
-      Timer timer = new Timer(true);
-      TimerTask task = new TimerTask() {
-        public void run() {
-            
-            if (!gameOver) {
-              WordleGUI.timer += 1000;
-              long hours = (WordleGUI.timer / 3600000) % 24;
-              long minutes = (WordleGUI.timer / 60000) % 60;
-              long seconds = (WordleGUI.timer / 1000) % 60;
-              String formattedTime = String.format("%02d:%02d:%02d", hours, minutes, seconds);
-              SwingUtilities.invokeLater(() -> WordleGUI.timerLabel.setText(formattedTime));
-            }
+    Timer timer = new Timer(true);
+    TimerTask task = new TimerTask() {
+      public void run() {
+
+        if (!gameOver) {
+          WordleGUI.timer += 1000;
+          long hours = (WordleGUI.timer / 3600000) % 24;
+          long minutes = (WordleGUI.timer / 60000) % 60;
+          long seconds = (WordleGUI.timer / 1000) % 60;
+          String formattedTime = String.format("%02d:%02d:%02d", hours, minutes, seconds);
+          SwingUtilities.invokeLater(() -> WordleGUI.timerLabel.setText(formattedTime));
         }
-      };
-      timer.scheduleAtFixedRate(task, 0, 1000);
-    }
+      }
+    };
+    timer.scheduleAtFixedRate(task, 0, 1000);
+  }
 }

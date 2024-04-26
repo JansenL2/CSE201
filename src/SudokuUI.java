@@ -73,18 +73,26 @@ public class SudokuUI {
         labelTable.put(3, new JLabel("Hard"));
         labelTable.put(4, new JLabel("Insane"));
         slider.setLabelTable(labelTable);
+        slider.setBackground(new Color(backgroundColor.getRed(), backgroundColor.getGreen(),
+            backgroundColor.getBlue()));
+        slider.setForeground(Color.WHITE);
         slider.setPaintLabels(true);
         dialog.getContentPane().setBackground(backgroundColor);
 
         dialog.add(slider);
 
         JButton button = new JButton("Confirm");
+        button.setFocusPainted(false);
+        button.setBackground(new Color(backgroundColor.getRed() / 3, backgroundColor.getGreen() / 3,
+            backgroundColor.getBlue() / 3));
+        button.setForeground(Color.WHITE);
+        button.setBorderPainted(false);
         button.addActionListener(new ActionListener() {
           @Override
           public void actionPerformed(ActionEvent e) {
             dialog.dispose();
             difficulty = slider.getValue();
-            initializeUI();
+            initializeUI(backgroundColor);
             timer();
 
             topPanel.setBackground(backgroundColor);
@@ -109,7 +117,7 @@ public class SudokuUI {
    * difficulty level, with either JTextField for empty cells or JLabel for
    * pre-filled cells.
    */
-  private void initializeUI() {
+  private void initializeUI(Color backgroundColor) {
     // Create and set up the window.
     frame = new JFrame("Sudoku");
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -131,10 +139,17 @@ public class SudokuUI {
     labelTable.put(3, new JLabel("Hard"));
     labelTable.put(4, new JLabel("Insane"));
     slider.setLabelTable(labelTable);
+    slider.setBackground(
+        new Color(backgroundColor.getRed(), backgroundColor.getGreen(), backgroundColor.getBlue()));
     slider.setPaintLabels(true);
     topPanel.add(slider);
 
     JButton answer = new JButton("new game");
+    answer.setFocusPainted(false);
+    answer.setBackground(new Color(backgroundColor.getRed() / 3, backgroundColor.getGreen() / 3,
+        backgroundColor.getBlue() / 3));
+    answer.setForeground(Color.WHITE);
+    answer.setBorderPainted(false);
     topPanel.add(answer);
     answer.addActionListener(new ActionListener() {
       @Override
@@ -145,6 +160,11 @@ public class SudokuUI {
       }
     });
     JButton check = new JButton("check");
+    check.setFocusPainted(false);
+    check.setBackground(new Color(backgroundColor.getRed() / 3, backgroundColor.getGreen() / 3,
+        backgroundColor.getBlue() / 3));
+    check.setForeground(Color.WHITE);
+    check.setBorderPainted(false);
     topPanel.add(check);
     check.addActionListener(new ActionListener() {
       @Override
