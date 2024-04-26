@@ -1,6 +1,7 @@
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -53,51 +54,57 @@ public class MainMenu {
     int TOPPADDING = 10;
 
     JFrame frame = new JFrame("Main Menu");
-    frame.setSize(500, 300);
+    frame.setSize(500, 400);
     JPanel panel = new JPanel();
 
     JLabel streakLabel = new JLabel("Streak: " + dailyStreak);
     Dimension size = streakLabel.getPreferredSize();
     streakLabel.setBounds(10, TOPPADDING, size.width, size.height);
 
+    JLabel titleLabel = new JLabel("Cognify");
+    size = titleLabel.getPreferredSize();
+    titleLabel.setBounds(185, TOPPADDING + 15, 150, 50);
+    titleLabel.setFont(new Font("Serif", Font.BOLD, 40));
+
     JButton button1 = new JButton();
     button1.setText("Close");
-    button1.setBounds(frame.getWidth() / 2 - 50, 25 + TOPPADDING, 100, 50);
+    button1.setBounds(frame.getWidth() / 2 - 50, BUTTONHEIGHT + TOPPADDING + 115 + 100, 100, 50);
 
     JButton button2 = new JButton();
     button2.setText("Spelling Bee");
-    button2.setBounds(10 + 5 + 100 * (1) - 65, BUTTONHEIGHT + TOPPADDING, 100, 50);
+    button2.setBounds(10 + 5 + 100 * (1) - 65, BUTTONHEIGHT + TOPPADDING + 80, 100, 50);
 
     JButton button3 = new JButton();
     button3.setText("Sudoku");
-    button3.setBounds(10 + 5 + 100 * (2) - 65, BUTTONHEIGHT + TOPPADDING, 100, 50);
+    button3.setBounds(10 + 5 + 100 * (2) - 65, BUTTONHEIGHT + TOPPADDING + 80, 100, 50);
 
     JButton button4 = new JButton();
     button4.setText("Wordle");
-    button4.setBounds(10 + 5 + 100 * (3) - 65, BUTTONHEIGHT + TOPPADDING, 100, 50);
+    button4.setBounds(10 + 5 + 100 * (3) - 65, BUTTONHEIGHT + TOPPADDING + 80, 100, 50);
 
     JButton button5 = new JButton();
     button5.setText("Connections");
-    button5.setBounds(10 + 5 + 100 * (4) - 65, BUTTONHEIGHT + TOPPADDING, 100, 50);
+    button5.setBounds(10 + 5 + 100 * (4) - 65, BUTTONHEIGHT + TOPPADDING + 80, 100, 50);
 
     JButton clearStreakButton = new JButton();
     clearStreakButton.setText("Reset Streak");
-    clearStreakButton.setBounds(400, 225, 100, 50);
+    clearStreakButton.setBounds(380, BUTTONHEIGHT + TOPPADDING + 115 + 100, 100, 50);
 
     JButton pinkBackgroundButton = new JButton();
     pinkBackgroundButton.setText("Pink Background");
-    pinkBackgroundButton.setBounds(15, BUTTONHEIGHT + TOPPADDING + 115, 50, 50);
+    pinkBackgroundButton.setBounds(15, BUTTONHEIGHT + TOPPADDING + 115 + 100, 50, 50);
 
     JButton greenBackgroundButton = new JButton();
     greenBackgroundButton.setText("Green Background");
-    greenBackgroundButton.setBounds(65, BUTTONHEIGHT + TOPPADDING + 115, 50, 50);
+    greenBackgroundButton.setBounds(65, BUTTONHEIGHT + TOPPADDING + 115 + 100, 50, 50);
 
     JButton blueBackgroundButton = new JButton();
     blueBackgroundButton.setText("Blue Background");
-    blueBackgroundButton.setBounds(115, BUTTONHEIGHT + TOPPADDING + 115, 50, 50);
+    blueBackgroundButton.setBounds(115, BUTTONHEIGHT + TOPPADDING + 115 + 100, 50, 50);
 
     panel.setLayout(null);
 
+    panel.add(titleLabel);
     panel.add(streakLabel);
 
     panel.add(button1); // close
