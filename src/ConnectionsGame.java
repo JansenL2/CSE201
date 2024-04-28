@@ -137,9 +137,4 @@ public class ConnectionsGame extends JFrame {
         correctlyIdentifiedGroups.clear(); // Clear previously identified groups
         displayWords();
     }
-
-    public static void main(String[] args) {
-        ConnectionsGame game = new ConnectionsGame();
-        game.setVisible(true);
-    }
 }

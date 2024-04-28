@@ -235,9 +235,10 @@ public class MainMenu {
     });
     button5.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
-        // panel.setVisible(false);
-        // WordleGUI.gameCallWordle(backgroundColor);
-        // frame.dispose();
+        panel.setVisible(false);
+        ConnectionsGame game = new ConnectionsGame();
+        game.setVisible(true);
+        frame.dispose();
       }
     });
     clearStreakButton.addActionListener(new ActionListener() {
