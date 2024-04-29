@@ -167,6 +167,8 @@ public class WordleGUI {
               grid.get(currentLetter-- + (currentWord * 5) - 1).setText("");
               grid.get(currentLetter-- + (currentWord * 5) - 1).setText("");
               grid.get(currentLetter-- + (currentWord * 5) - 1).setText("");
+              currentLetter = 0;
+              currentWord--;
             }
 
             word = "";
