@@ -1,0 +1,4 @@
+For macOS, open terminal in this folders directory and type: 
+java -jar MainMenu.jar
+
+For Windows just double click the jar file.
