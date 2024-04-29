@@ -144,7 +144,7 @@ public class MainMenu {
 
     JButton clearStreakButton = new JButton();
     clearStreakButton.setText("Reset Streak");
-    clearStreakButton.setBounds(380, BUTTONHEIGHT + TOPPADDING + 115 + 100, 100, 50);
+    clearStreakButton.setBounds(frame.getWidth() - 165, BUTTONHEIGHT + TOPPADDING + 115 + 100, 135, 50);
     clearStreakButton.setFocusPainted(false);
     clearStreakButton.setBackground(titleColor);
     clearStreakButton.setForeground(Color.WHITE);
@@ -236,7 +236,7 @@ public class MainMenu {
     button5.addActionListener(new ActionListener() {
       public void actionPerformed(ActionEvent e) {
         panel.setVisible(false);
-        ConnectionsGame game = new ConnectionsGame();
+        ConnectionsGame game = new ConnectionsGame(backgroundColor);
         game.setVisible(true);
         frame.dispose();
       }

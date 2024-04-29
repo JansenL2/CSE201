@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.*;
 import java.util.*;
 import java.util.List;
@@ -16,8 +17,10 @@ public class ConnectionsGame extends JFrame {
     private int triesLeft = 4; // starts with 4 tries
     private final JLabel triesLabel = new JLabel("Tries left: " + triesLeft); // label for tries
     private final List<JButton> clickedButtons = new ArrayList<>(); // running list of clicked buttons
+    private final Color backgroundColor;
 
-    public ConnectionsGame() {
+    public ConnectionsGame(Color backgroundColor) {
+        this.backgroundColor = backgroundColor;
         initializeUI();
         loadWordsFromFile("Word_Groups.txt"); // File path
         displayWords();
@@ -42,6 +45,7 @@ public class ConnectionsGame extends JFrame {
         for (String[] wordAndGroup : wordsWithGroups) {
             JButton button = new JButton(wordAndGroup[0]);
             button.addActionListener(e -> buttonClickHandler(button));
+            button.setBackground(backgroundColor);
             buttonPanel.add(button);
             wordToGroupMap.put(wordAndGroup[0], wordAndGroup[1]);
             wordToButtonMap.put(wordAndGroup[0], button); // map words to their buttons
@@ -54,7 +58,7 @@ public class ConnectionsGame extends JFrame {
     private void buttonClickHandler(JButton clickedButton) {
         if (clickedButton.isEnabled()) {
             if (clickedButtons.contains(clickedButton)) {
-                clickedButton.setBackground(null); // remove highlight
+                clickedButton.setBackground(backgroundColor); // remove highlight
                 clickedButtons.remove(clickedButton); // removes from array
             } else if (clickedButtons.size() < 4) {
                 clickedButton.setBackground(Color.YELLOW); // Highlight the button
@@ -84,7 +88,7 @@ public class ConnectionsGame extends JFrame {
             }
         }
         // Reset clicked buttons state for new attempts
-        clickedButtons.forEach(btn -> btn.setBackground(null)); // unhighlight all clicked buttons
+        clickedButtons.forEach(btn -> btn.setBackground(backgroundColor)); // unhighlight all clicked buttons
         clickedButtons.clear(); // clear the list of clicked buttons
     }
 
@@ -119,13 +123,43 @@ public class ConnectionsGame extends JFrame {
 
     private void initializeUI() {
         setTitle("Connections Game");
-        setSize(1000, 600);
+        setSize(750, 450);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
         mainPanel.add(buttonPanel, BorderLayout.CENTER);
-        mainPanel.add(triesLabel, BorderLayout.SOUTH);
+        mainPanel.add(triesLabel, BorderLayout.NORTH);
         triesLabel.setHorizontalAlignment(JLabel.CENTER);
         triesLabel.setFont(new Font("Arial", Font.BOLD, 16));
+        
+        triesLabel.setForeground(Color.WHITE);
+        
+        mainPanel.setBackground(new Color(backgroundColor.getRed() / 3,
+                 backgroundColor.getGreen() / 3, backgroundColor.getBlue() / 3));
+        
+        JButton backButton = new JButton();
+        backButton.setText("Main Menu");
+        backButton.setFocusPainted(false);
+        backButton.setBackground(new Color(backgroundColor.getRed() / 3, backgroundColor.getGreen() / 3,
+            backgroundColor.getBlue() / 3));
+        backButton.setForeground(Color.WHITE);
+        backButton.setBorderPainted(false);
+        
+        mainPanel.add(backButton, BorderLayout.SOUTH);
+        
+        backButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+              setVisible(false);
+
+              try {
+                MainMenu.mainCall();
+              } catch (IOException e1) {
+                // TODO Auto-generated catch block
+                e1.printStackTrace();
+              }
+
+              ;
+            }
+          });
 
         add(mainPanel);
     }
